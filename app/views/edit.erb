@@ -1,4 +1,5 @@
 <h1> Edit Your Recipe!</h1>
 <form action="/recipes/<%= @recipe.id %>" method="POST">
-
+<p>Old Ingredients: <%= @recipe.ingredients %></p>
+<p>New Ingredients<input type="text" name="ingredients"></p>
 </form>
