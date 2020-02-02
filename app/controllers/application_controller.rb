@@ -18,13 +18,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes/new' do
-    binding.pry
     @recipe = Recipe.new
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
     @recipe.save
-    id = @recipe.id 
     redirect "/recipes/#{@recipe.id}"
   end
 
