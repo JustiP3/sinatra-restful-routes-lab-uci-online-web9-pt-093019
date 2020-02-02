@@ -13,24 +13,24 @@ class ApplicationController < Sinatra::Base
     erb :index 
   end 
 
-  get '/new' do 
+  get '/recipes/new' do 
     erb :new 
   end 
 
-  post '/new' do 
+  post '/recipes/new' do 
     @recipe = Recipe.new 
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
     @recipe.cook_time = params[:cook_time]
     @recipe.save 
-    redirect "/#{@recipe.id}"
+    redirect "/recipes/#{@recipe.id}"
   end 
 
-  get '/delete' do 
+  get '/recipes/delete' do 
     
   end 
 
-  get '/:id' do
+  get '/recipes/:id' do
     @recipe = Recipe.find_by(:id => params[:id])
     erb :show 
   end
