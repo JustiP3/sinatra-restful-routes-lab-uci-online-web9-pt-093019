@@ -18,6 +18,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes/new' do
+    binding.pry
     @recipe = Recipe.new
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
