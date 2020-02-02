@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
     @recipe.cook_time = params[:cook_time]
     @recipe.save
     id = @recipe.id 
-    redirect "/recipes/#{id}"
+    redirect "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
