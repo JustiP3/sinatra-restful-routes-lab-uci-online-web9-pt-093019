@@ -5,6 +5,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do 
+    redirect '/recipes'
+  end 
+
+  get '/recipes' do 
     @recipes = Recipe.all 
     erb :index 
   end 
@@ -20,6 +24,10 @@ class ApplicationController < Sinatra::Base
     @recipe.cook_time = params[:cook_time]
     @recipe.save 
     redirect "/#{@recipe.id}"
+  end 
+
+  get '/delete' do 
+    
   end 
 
   get '/:id' do
